@@ -1,0 +1,9 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+buildreq-kde
+karchive-dev
+ki18n-dev
+perl-URI-Encode
+perl-URI-Escape-XS
+perl-URI
+libxslt-dev

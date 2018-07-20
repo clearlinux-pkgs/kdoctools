@@ -6,7 +6,7 @@
 #
 Name     : kdoctools
 Version  : 5.48.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/frameworks/5.48/kdoctools-5.48.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.48/kdoctools-5.48.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.48/kdoctools-5.48.0.tar.xz.sig
@@ -19,6 +19,9 @@ Requires: kdoctools-license
 Requires: kdoctools-data
 Requires: kdoctools-locales
 Requires: kdoctools-man
+Requires: docbook-xml
+Requires: libxml2
+Requires: libxslt
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : docbook-xml
@@ -115,7 +118,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1531938022
+export SOURCE_DATE_EPOCH=1532093688
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -123,7 +126,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1531938022
+export SOURCE_DATE_EPOCH=1532093688
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kdoctools
 cp COPYING.LIB %{buildroot}/usr/share/doc/kdoctools/COPYING.LIB

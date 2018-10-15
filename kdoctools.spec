@@ -5,20 +5,19 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kdoctools
-Version  : 5.50.0
-Release  : 7
-URL      : https://download.kde.org/stable/frameworks/5.50/kdoctools-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/kdoctools-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/kdoctools-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 8
+URL      : https://download.kde.org/stable/frameworks/5.51/kdoctools-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/kdoctools-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/kdoctools-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
-Requires: kdoctools-bin
-Requires: kdoctools-lib
-Requires: kdoctools-license
-Requires: kdoctools-data
-Requires: kdoctools-locales
-Requires: kdoctools-man
+Requires: kdoctools-bin = %{version}-%{release}
+Requires: kdoctools-data = %{version}-%{release}
+Requires: kdoctools-lib = %{version}-%{release}
+Requires: kdoctools-license = %{version}-%{release}
+Requires: kdoctools-man = %{version}-%{release}
 Requires: docbook-xml
 Requires: libxml2
 Requires: libxslt
@@ -40,9 +39,9 @@ Some short documentation on the different stylesheets, and how to use them.
 %package bin
 Summary: bin components for the kdoctools package.
 Group: Binaries
-Requires: kdoctools-data
-Requires: kdoctools-license
-Requires: kdoctools-man
+Requires: kdoctools-data = %{version}-%{release}
+Requires: kdoctools-license = %{version}-%{release}
+Requires: kdoctools-man = %{version}-%{release}
 
 %description bin
 bin components for the kdoctools package.
@@ -59,10 +58,10 @@ data components for the kdoctools package.
 %package dev
 Summary: dev components for the kdoctools package.
 Group: Development
-Requires: kdoctools-lib
-Requires: kdoctools-bin
-Requires: kdoctools-data
-Provides: kdoctools-devel
+Requires: kdoctools-lib = %{version}-%{release}
+Requires: kdoctools-bin = %{version}-%{release}
+Requires: kdoctools-data = %{version}-%{release}
+Provides: kdoctools-devel = %{version}-%{release}
 
 %description dev
 dev components for the kdoctools package.
@@ -71,7 +70,7 @@ dev components for the kdoctools package.
 %package doc
 Summary: doc components for the kdoctools package.
 Group: Documentation
-Requires: kdoctools-man
+Requires: kdoctools-man = %{version}-%{release}
 
 %description doc
 doc components for the kdoctools package.
@@ -80,8 +79,8 @@ doc components for the kdoctools package.
 %package lib
 Summary: lib components for the kdoctools package.
 Group: Libraries
-Requires: kdoctools-data
-Requires: kdoctools-license
+Requires: kdoctools-data = %{version}-%{release}
+Requires: kdoctools-license = %{version}-%{release}
 
 %description lib
 lib components for the kdoctools package.
@@ -95,14 +94,6 @@ Group: Default
 license components for the kdoctools package.
 
 
-%package locales
-Summary: locales components for the kdoctools package.
-Group: Default
-
-%description locales
-locales components for the kdoctools package.
-
-
 %package man
 Summary: man components for the kdoctools package.
 Group: Default
@@ -112,30 +103,29 @@ man components for the kdoctools package.
 
 
 %prep
-%setup -q -n kdoctools-5.50.0
+%setup -q -n kdoctools-5.51.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536432535
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539615126
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536432535
+export SOURCE_DATE_EPOCH=1539615126
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kdoctools
-cp COPYING.LIB %{buildroot}/usr/share/doc/kdoctools/COPYING.LIB
-cp LICENSE %{buildroot}/usr/share/doc/kdoctools/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/kdoctools
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kdoctools/COPYING.LIB
+cp LICENSE %{buildroot}/usr/share/package-licenses/kdoctools/LICENSE
 pushd clr-build
 %make_install
 popd
-%find_lang kdoctools5
 
 %files
 %defattr(-,root,root,-)
@@ -1062,23 +1052,31 @@ popd
 /usr/share/doc/HTML/de/kdoctools5-common/kde-localised.css
 /usr/share/doc/HTML/de/kdoctools5-common/lgpl-translated.html
 /usr/share/doc/HTML/el/kdoctools5-common/kde-localised.css
+/usr/share/doc/HTML/en/kdoctools5-common/artistic-license.html
 /usr/share/doc/HTML/en/kdoctools5-common/block_title_bottom.png
 /usr/share/doc/HTML/en/kdoctools5-common/block_title_mid.png
 /usr/share/doc/HTML/en/kdoctools5-common/block_title_top.png
+/usr/share/doc/HTML/en/kdoctools5-common/bsd-license.html
+/usr/share/doc/HTML/en/kdoctools5-common/ccbysa4-license.html
+/usr/share/doc/HTML/en/kdoctools5-common/fdl-license.html
 /usr/share/doc/HTML/en/kdoctools5-common/fdl-notice.html
 /usr/share/doc/HTML/en/kdoctools5-common/fdl-translated.html
+/usr/share/doc/HTML/en/kdoctools5-common/gpl-license.html
 /usr/share/doc/HTML/en/kdoctools5-common/gpl-translated.html
 /usr/share/doc/HTML/en/kdoctools5-common/kde-default.css
 /usr/share/doc/HTML/en/kdoctools5-common/kde-docs.css
 /usr/share/doc/HTML/en/kdoctools5-common/kde_logo.png
 /usr/share/doc/HTML/en/kdoctools5-common/kde_logo_bg.png
 /usr/share/doc/HTML/en/kdoctools5-common/kmenu.png
+/usr/share/doc/HTML/en/kdoctools5-common/lgpl-license.html
 /usr/share/doc/HTML/en/kdoctools5-common/lgpl-translated.html
 /usr/share/doc/HTML/en/kdoctools5-common/part_of_the_kde_family_horizontal_190.png
+/usr/share/doc/HTML/en/kdoctools5-common/qpl-license.html
 /usr/share/doc/HTML/en/kdoctools5-common/top-kde.jpg
 /usr/share/doc/HTML/en/kdoctools5-common/top-left.jpg
 /usr/share/doc/HTML/en/kdoctools5-common/top-right.jpg
 /usr/share/doc/HTML/en/kdoctools5-common/top.jpg
+/usr/share/doc/HTML/en/kdoctools5-common/x11-license.html
 /usr/share/doc/HTML/en/kdoctools5-common/xml.dcl
 /usr/share/doc/HTML/eo/kdoctools5-common/kde-localised.css
 /usr/share/doc/HTML/es/kdoctools5-common/kde-localised.css
@@ -1126,66 +1124,16 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5DocTools.so.5
-/usr/lib64/libKF5DocTools.so.5.50.0
+/usr/lib64/libKF5DocTools.so.5.51.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/HTML/en/kdoctools5-common/artistic-license.html
-/usr/share/doc/HTML/en/kdoctools5-common/bsd-license.html
-/usr/share/doc/HTML/en/kdoctools5-common/ccbysa4-license.html
-/usr/share/doc/HTML/en/kdoctools5-common/fdl-license.html
-/usr/share/doc/HTML/en/kdoctools5-common/gpl-license.html
-/usr/share/doc/HTML/en/kdoctools5-common/lgpl-license.html
-/usr/share/doc/HTML/en/kdoctools5-common/qpl-license.html
-/usr/share/doc/HTML/en/kdoctools5-common/x11-license.html
-/usr/share/doc/kdoctools/COPYING.LIB
-/usr/share/doc/kdoctools/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kdoctools/COPYING.LIB
+/usr/share/package-licenses/kdoctools/LICENSE
 
 %files man
-%defattr(-,root,root,-)
-/usr/share/man/ca/man1/checkXML5.1
-/usr/share/man/ca/man1/meinproc5.1
-/usr/share/man/ca/man7/kf5options.7
-/usr/share/man/ca/man7/qt5options.7
-/usr/share/man/de/man1/checkXML5.1
-/usr/share/man/de/man1/meinproc5.1
-/usr/share/man/de/man7/kf5options.7
-/usr/share/man/de/man7/qt5options.7
-/usr/share/man/es/man1/checkXML5.1
-/usr/share/man/es/man1/meinproc5.1
-/usr/share/man/es/man7/kf5options.7
-/usr/share/man/es/man7/qt5options.7
-/usr/share/man/it/man1/checkXML5.1
-/usr/share/man/it/man1/meinproc5.1
-/usr/share/man/it/man7/kf5options.7
-/usr/share/man/it/man7/qt5options.7
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/checkXML5.1
 /usr/share/man/man1/meinproc5.1
 /usr/share/man/man7/kf5options.7
 /usr/share/man/man7/qt5options.7
-/usr/share/man/nl/man1/checkXML5.1
-/usr/share/man/nl/man1/meinproc5.1
-/usr/share/man/nl/man7/kf5options.7
-/usr/share/man/nl/man7/qt5options.7
-/usr/share/man/pt/man1/checkXML5.1
-/usr/share/man/pt/man1/meinproc5.1
-/usr/share/man/pt/man7/kf5options.7
-/usr/share/man/pt/man7/qt5options.7
-/usr/share/man/pt_BR/man1/checkXML5.1
-/usr/share/man/pt_BR/man1/meinproc5.1
-/usr/share/man/pt_BR/man7/kf5options.7
-/usr/share/man/pt_BR/man7/qt5options.7
-/usr/share/man/ru/man1/checkXML5.1
-/usr/share/man/ru/man7/qt5options.7
-/usr/share/man/sv/man1/checkXML5.1
-/usr/share/man/sv/man1/meinproc5.1
-/usr/share/man/sv/man7/kf5options.7
-/usr/share/man/sv/man7/qt5options.7
-/usr/share/man/uk/man1/checkXML5.1
-/usr/share/man/uk/man1/meinproc5.1
-/usr/share/man/uk/man7/kf5options.7
-/usr/share/man/uk/man7/qt5options.7
-
-%files locales -f kdoctools5.lang
-%defattr(-,root,root,-)
-

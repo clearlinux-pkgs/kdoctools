@@ -6,7 +6,7 @@
 #
 Name     : kdoctools
 Version  : 5.56.0
-Release  : 17
+Release  : 18
 URL      : https://download.kde.org/stable/frameworks/5.56/kdoctools-5.56.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.56/kdoctools-5.56.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.56/kdoctools-5.56.0.tar.xz.sig
@@ -119,7 +119,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552148890
+export SOURCE_DATE_EPOCH=1552420774
 mkdir -p clr-build
 pushd clr-build
 export LDFLAGS="${LDFLAGS} -fno-lto"
@@ -128,7 +128,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552148890
+export SOURCE_DATE_EPOCH=1552420774
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdoctools
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kdoctools/COPYING.LIB
@@ -137,6 +137,9 @@ pushd clr-build
 %make_install
 popd
 %find_lang kdoctools5
+## install_append content
+cp %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt_br.xml %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt-BR.xml
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -978,6 +981,7 @@ popd
 /usr/share/kf5/kdoctools/customization/xsl/nl.xml
 /usr/share/kf5/kdoctools/customization/xsl/nn.xml
 /usr/share/kf5/kdoctools/customization/xsl/pl.xml
+/usr/share/kf5/kdoctools/customization/xsl/pt-BR.xml
 /usr/share/kf5/kdoctools/customization/xsl/pt.xml
 /usr/share/kf5/kdoctools/customization/xsl/pt_br.xml
 /usr/share/kf5/kdoctools/customization/xsl/ru.xml

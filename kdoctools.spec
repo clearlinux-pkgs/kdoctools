@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kdoctools
-Version  : 5.57.0
-Release  : 21
-URL      : https://download.kde.org/stable/frameworks/5.57/kdoctools-5.57.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.57/kdoctools-5.57.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.57/kdoctools-5.57.0.tar.xz.sig
+Version  : 5.58.0
+Release  : 22
+URL      : https://download.kde.org/stable/frameworks/5.58/kdoctools-5.58.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.58/kdoctools-5.58.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.58/kdoctools-5.58.0.tar.xz.sig
 Summary  : Documentation generation from docbook
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
@@ -24,9 +24,12 @@ Requires: libxml2
 Requires: libxslt
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : docbook-xml
 BuildRequires : karchive-dev
 BuildRequires : ki18n-dev
+BuildRequires : libxml2
 BuildRequires : libxml2-dev
+BuildRequires : libxslt
 BuildRequires : libxslt-dev
 BuildRequires : perl
 BuildRequires : perl-URI
@@ -62,6 +65,7 @@ Requires: kdoctools-lib = %{version}-%{release}
 Requires: kdoctools-bin = %{version}-%{release}
 Requires: kdoctools-data = %{version}-%{release}
 Provides: kdoctools-devel = %{version}-%{release}
+Requires: kdoctools = %{version}-%{release}
 Requires: kdoctools = %{version}-%{release}
 
 %description dev
@@ -112,14 +116,14 @@ man components for the kdoctools package.
 
 
 %prep
-%setup -q -n kdoctools-5.57.0
+%setup -q -n kdoctools-5.58.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557011352
+export SOURCE_DATE_EPOCH=1557788470
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -134,7 +138,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557011352
+export SOURCE_DATE_EPOCH=1557788470
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdoctools
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kdoctools/COPYING.LIB
@@ -1153,7 +1157,7 @@ cp %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt_br.xml %{buildroot}
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5DocTools.so.5
-/usr/lib64/libKF5DocTools.so.5.57.0
+/usr/lib64/libKF5DocTools.so.5.58.0
 
 %files license
 %defattr(0644,root,root,0755)

@@ -6,7 +6,7 @@
 #
 Name     : kdoctools
 Version  : 5.58.0
-Release  : 22
+Release  : 23
 URL      : https://download.kde.org/stable/frameworks/5.58/kdoctools-5.58.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.58/kdoctools-5.58.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.58/kdoctools-5.58.0.tar.xz.sig
@@ -123,7 +123,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557788470
+export SOURCE_DATE_EPOCH=1559837307
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -138,7 +138,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557788470
+export SOURCE_DATE_EPOCH=1559837307
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdoctools
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kdoctools/COPYING.LIB

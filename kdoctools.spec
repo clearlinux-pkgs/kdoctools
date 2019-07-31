@@ -6,17 +6,18 @@
 #
 Name     : kdoctools
 Version  : 5.60.0
-Release  : 26
+Release  : 27
 URL      : https://download.kde.org/stable/frameworks/5.60/kdoctools-5.60.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.60/kdoctools-5.60.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.60/kdoctools-5.60.0.tar.xz.sig
-Summary  : Documentation generation from docbook
+Source1 : https://download.kde.org/stable/frameworks/5.60/kdoctools-5.60.0.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
 Requires: kdoctools-bin = %{version}-%{release}
 Requires: kdoctools-data = %{version}-%{release}
 Requires: kdoctools-lib = %{version}-%{release}
 Requires: kdoctools-license = %{version}-%{release}
+Requires: kdoctools-locales = %{version}-%{release}
 Requires: kdoctools-man = %{version}-%{release}
 Requires: docbook-xml
 Requires: libxml2
@@ -65,7 +66,6 @@ Requires: kdoctools-bin = %{version}-%{release}
 Requires: kdoctools-data = %{version}-%{release}
 Provides: kdoctools-devel = %{version}-%{release}
 Requires: kdoctools = %{version}-%{release}
-Requires: kdoctools = %{version}-%{release}
 
 %description dev
 dev components for the kdoctools package.
@@ -98,6 +98,14 @@ Group: Default
 license components for the kdoctools package.
 
 
+%package locales
+Summary: locales components for the kdoctools package.
+Group: Default
+
+%description locales
+locales components for the kdoctools package.
+
+
 %package man
 Summary: man components for the kdoctools package.
 Group: Default
@@ -114,7 +122,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1563038661
+export SOURCE_DATE_EPOCH=1564554804
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -130,7 +138,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1563038661
+export SOURCE_DATE_EPOCH=1564554804
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdoctools
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kdoctools/COPYING.LIB
@@ -138,6 +146,7 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/kdoctools/LICENSE
 pushd clr-build
 %make_install
 popd
+%find_lang kdoctools5
 ## install_append content
 cp %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt_br.xml %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt-BR.xml
 ## install_append end
@@ -1157,7 +1166,49 @@ cp %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt_br.xml %{buildroot}
 
 %files man
 %defattr(0644,root,root,0755)
+/usr/share/man/ca/man1/checkXML5.1
+/usr/share/man/ca/man1/meinproc5.1
+/usr/share/man/ca/man7/kf5options.7
+/usr/share/man/ca/man7/qt5options.7
+/usr/share/man/de/man1/checkXML5.1
+/usr/share/man/de/man1/meinproc5.1
+/usr/share/man/de/man7/kf5options.7
+/usr/share/man/de/man7/qt5options.7
+/usr/share/man/es/man1/checkXML5.1
+/usr/share/man/es/man1/meinproc5.1
+/usr/share/man/es/man7/kf5options.7
+/usr/share/man/es/man7/qt5options.7
+/usr/share/man/it/man1/checkXML5.1
+/usr/share/man/it/man1/meinproc5.1
+/usr/share/man/it/man7/kf5options.7
+/usr/share/man/it/man7/qt5options.7
 /usr/share/man/man1/checkXML5.1
 /usr/share/man/man1/meinproc5.1
 /usr/share/man/man7/kf5options.7
 /usr/share/man/man7/qt5options.7
+/usr/share/man/nl/man1/checkXML5.1
+/usr/share/man/nl/man1/meinproc5.1
+/usr/share/man/nl/man7/kf5options.7
+/usr/share/man/nl/man7/qt5options.7
+/usr/share/man/pt/man1/checkXML5.1
+/usr/share/man/pt/man1/meinproc5.1
+/usr/share/man/pt/man7/kf5options.7
+/usr/share/man/pt/man7/qt5options.7
+/usr/share/man/pt_BR/man1/checkXML5.1
+/usr/share/man/pt_BR/man1/meinproc5.1
+/usr/share/man/pt_BR/man7/kf5options.7
+/usr/share/man/pt_BR/man7/qt5options.7
+/usr/share/man/ru/man1/checkXML5.1
+/usr/share/man/ru/man7/qt5options.7
+/usr/share/man/sv/man1/checkXML5.1
+/usr/share/man/sv/man1/meinproc5.1
+/usr/share/man/sv/man7/kf5options.7
+/usr/share/man/sv/man7/qt5options.7
+/usr/share/man/uk/man1/checkXML5.1
+/usr/share/man/uk/man1/meinproc5.1
+/usr/share/man/uk/man7/kf5options.7
+/usr/share/man/uk/man7/qt5options.7
+
+%files locales -f kdoctools5.lang
+%defattr(-,root,root,-)
+

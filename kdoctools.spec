@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kdoctools
-Version  : 5.61.0
-Release  : 29
-URL      : https://download.kde.org/stable/frameworks/5.61/kdoctools-5.61.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.61/kdoctools-5.61.0.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.61/kdoctools-5.61.0.tar.xz.sig
+Version  : 5.62.0
+Release  : 30
+URL      : https://download.kde.org/stable/frameworks/5.62/kdoctools-5.62.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.62/kdoctools-5.62.0.tar.xz
+Source1 : https://download.kde.org/stable/frameworks/5.62/kdoctools-5.62.0.tar.xz.sig
 Summary  : Documentation generation from docbook
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
@@ -66,6 +66,7 @@ Requires: kdoctools-bin = %{version}-%{release}
 Requires: kdoctools-data = %{version}-%{release}
 Provides: kdoctools-devel = %{version}-%{release}
 Requires: kdoctools = %{version}-%{release}
+Requires: kdoctools = %{version}-%{release}
 
 %description dev
 dev components for the kdoctools package.
@@ -115,16 +116,17 @@ man components for the kdoctools package.
 
 
 %prep
-%setup -q -n kdoctools-5.61.0
+%setup -q -n kdoctools-5.62.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1566189898
+export SOURCE_DATE_EPOCH=1568903749
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -134,11 +136,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1566189898
+export SOURCE_DATE_EPOCH=1568903749
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdoctools
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kdoctools/COPYING.LIB
@@ -1157,7 +1159,7 @@ cp %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt_br.xml %{buildroot}
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5DocTools.so.5
-/usr/lib64/libKF5DocTools.so.5.61.0
+/usr/lib64/libKF5DocTools.so.5.62.0
 
 %files license
 %defattr(0644,root,root,0755)
@@ -1178,6 +1180,7 @@ cp %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt_br.xml %{buildroot}
 /usr/share/man/es/man1/meinproc5.1
 /usr/share/man/es/man7/kf5options.7
 /usr/share/man/es/man7/qt5options.7
+/usr/share/man/id/man1/checkXML5.1
 /usr/share/man/it/man1/checkXML5.1
 /usr/share/man/it/man1/meinproc5.1
 /usr/share/man/it/man7/kf5options.7

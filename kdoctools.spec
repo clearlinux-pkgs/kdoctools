@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kdoctools
-Version  : 5.82.0
-Release  : 60
-URL      : https://download.kde.org/stable/frameworks/5.82/kdoctools-5.82.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.82/kdoctools-5.82.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.82/kdoctools-5.82.0.tar.xz.sig
+Version  : 5.83.0
+Release  : 61
+URL      : https://download.kde.org/stable/frameworks/5.83/kdoctools-5.83.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.83/kdoctools-5.83.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.83/kdoctools-5.83.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1 LGPL-3.0
@@ -118,15 +118,15 @@ man components for the kdoctools package.
 
 
 %prep
-%setup -q -n kdoctools-5.82.0
-cd %{_builddir}/kdoctools-5.82.0
+%setup -q -n kdoctools-5.83.0
+cd %{_builddir}/kdoctools-5.83.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623261216
+export SOURCE_DATE_EPOCH=1623644547
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -142,16 +142,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623261216
+export SOURCE_DATE_EPOCH=1623644547
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdoctools
-cp %{_builddir}/kdoctools-5.82.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kdoctools/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kdoctools-5.82.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdoctools/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/kdoctools-5.82.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kdoctools/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kdoctools-5.82.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kdoctools/6f1f675aa5f6a2bbaa573b8343044b166be28399
-cp %{_builddir}/kdoctools-5.82.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdoctools/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kdoctools-5.82.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdoctools/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kdoctools-5.82.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdoctools/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kdoctools-5.83.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kdoctools/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kdoctools-5.83.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdoctools/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kdoctools-5.83.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kdoctools/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kdoctools-5.83.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kdoctools/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kdoctools-5.83.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdoctools/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kdoctools-5.83.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdoctools/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kdoctools-5.83.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdoctools/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -807,6 +807,24 @@ cp %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt_br.xml %{buildroot}
 /usr/share/kf5/kdoctools/customization/sl/lang.entities
 /usr/share/kf5/kdoctools/customization/sl/strings.entities
 /usr/share/kf5/kdoctools/customization/sl/user.entities
+/usr/share/kf5/kdoctools/customization/sq/catalog.xml
+/usr/share/kf5/kdoctools/customization/sq/entities/fdl-notice.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/gpl-notice.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/help-menu.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/install-compile.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/install-intro.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/lgpl-notice.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/report-bugs.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/underArtisticLicense.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/underBSDLicense.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/underFDL.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/underGPL.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/underLGPL.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/underX11License.docbook
+/usr/share/kf5/kdoctools/customization/sq/entities/update-doc.docbook
+/usr/share/kf5/kdoctools/customization/sq/lang.entities
+/usr/share/kf5/kdoctools/customization/sq/strings.entities
+/usr/share/kf5/kdoctools/customization/sq/user.entities
 /usr/share/kf5/kdoctools/customization/sr/catalog.xml
 /usr/share/kf5/kdoctools/customization/sr/entities/fdl-notice.docbook
 /usr/share/kf5/kdoctools/customization/sr/entities/gpl-notice.docbook
@@ -1171,7 +1189,7 @@ cp %{buildroot}/usr/share/kf5/kdoctools/customization/xsl/pt_br.xml %{buildroot}
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5DocTools.so.5
-/usr/lib64/libKF5DocTools.so.5.82.0
+/usr/lib64/libKF5DocTools.so.5.83.0
 
 %files license
 %defattr(0644,root,root,0755)

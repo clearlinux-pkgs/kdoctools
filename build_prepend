@@ -1,2 +1,2 @@
 # Make sure the package only builds if ki18n has been updated first
-sed -i -r -e 's,(KF.?I18n PROPERTIES TYPE) OPTIONAL,\1 REQUIRED,' CMakeLists.txt
+sed -i -r -e 's,(KF.?I18n PROPERTIES TYPE) OPTIONAL,\1 REQUIRED,' CMakeLists.txt || :

@@ -9,7 +9,7 @@
 #
 Name     : kdoctools
 Version  : 6.2.0
-Release  : 281
+Release  : 282
 URL      : https://download.kde.org/stable/frameworks/6.2/kdoctools-6.2.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/6.2/kdoctools-6.2.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/6.2/kdoctools-6.2.0.tar.xz.sig

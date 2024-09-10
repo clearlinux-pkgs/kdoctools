@@ -1,6 +1,6 @@
-libKF6DocTools.so.6:_ZN9KDocTools11saveToCacheERK7QStringS2_
-libKF6DocTools.so.6:_ZN9KDocTools17documentationDirsEv
-libKF6DocTools.so.6:_ZN9KDocTools17setupStandardDirsERK7QString
-libKF6DocTools.so.6:_ZN9KDocTools19extractFileToBufferERK7QStringS2_
-libKF6DocTools.so.6:_ZN9KDocTools23locateFileInDtdResourceERK7QString6QFlagsIN14QStandardPaths12LocateOptionEE
-libKF6DocTools.so.6:_ZN9KDocTools9transformERK7QStringS2_RK5QListIPKcE
+libKF6DocTools.so.6:KDocTools::saveToCache(QString const&, QString const&)
+libKF6DocTools.so.6:KDocTools::documentationDirs()
+libKF6DocTools.so.6:KDocTools::setupStandardDirs(QString const&)
+libKF6DocTools.so.6:KDocTools::extractFileToBuffer(QString const&, QString const&)
+libKF6DocTools.so.6:KDocTools::locateFileInDtdResource(QString const&, QFlags<QStandardPaths::LocateOption>)
+libKF6DocTools.so.6:KDocTools::transform(QString const&, QString const&, QList<char const*> const&)

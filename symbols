@@ -1,6 +1,1 @@
-libKF6DocTools.so.6:KDocTools::saveToCache(QString const&, QString const&)
 libKF6DocTools.so.6:KDocTools::documentationDirs()
-libKF6DocTools.so.6:KDocTools::setupStandardDirs(QString const&)
-libKF6DocTools.so.6:KDocTools::extractFileToBuffer(QString const&, QString const&)
-libKF6DocTools.so.6:KDocTools::locateFileInDtdResource(QString const&, QFlags<QStandardPaths::LocateOption>)
-libKF6DocTools.so.6:KDocTools::transform(QString const&, QString const&, QList<char const*> const&)
